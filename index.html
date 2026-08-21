@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kroma Studio — Arquitectura que Trasciende</title>
+  <meta name="description" content="Kroma Studio: estudio de arquitectura de alto nivel especializado en diseño residencial, comercial e interiorismo. Solicita tu cotización." />
+
+  <!-- Google Fonts: Space Grotesk (titulares) + Inter (texto) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%230d0d0f%22/><path d=%22M30 20 L30 80 M30 50 L70 20 M30 50 L70 80%22 stroke=%22%23d97e46%22 stroke-width=%228%22 fill=%22none%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22/></svg>">
+</head>
+<body>
+
+  <!-- ============ HEADER / NAV ============ -->
+  <header class="header" id="header">
+    <div class="container header__inner">
+      <a href="#home" class="logo" aria-label="Kroma Studio — inicio">
+        <svg class="logo__mark" viewBox="0 0 100 100" width="38" height="38" aria-hidden="true">
+          <path d="M30 20 L30 80 M30 50 L70 20 M30 50 L70 80" stroke="url(#logoGrad)" stroke-width="9" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          <defs>
+            <linearGradient id="logoGrad" x1="0" y1="0" x2="100" y2="100">
+              <stop offset="0" stop-color="#e8935c"/>
+              <stop offset="1" stop-color="#a85a24"/>
+            </linearGradient>
+          </defs>
+        </svg>
+        <span class="logo__text">KROMA<span>STUDIO</span></span>
+      </a>
+
+      <nav class="nav" id="nav" aria-label="Navegación principal">
+        <ul class="nav__list">
+          <li><a href="#home" class="nav__link">Home</a></li>
+          <li><a href="#proyectos" class="nav__link">Proyectos</a></li>
+          <li><a href="#servicios" class="nav__link">Servicios</a></li>
+          <li><a href="#nosotros" class="nav__link">Sobre Nosotros</a></li>
+        </ul>
+      </nav>
+
+      <div class="header__actions">
+        <a href="#contacto" class="btn btn--accent btn--small">Cotizar Proyecto</a>
+        <button class="nav-toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="mainContent">
+
+    <!-- ============ HERO ============ -->
+    <section class="hero" id="home">
+      <div class="hero__glow" aria-hidden="true"></div>
+      <div class="container hero__inner">
+
+        <p class="eyebrow" data-reveal>Estudio de Arquitectura &amp; Diseño</p>
+        <h1 class="hero__title" data-reveal>ARQUITECTURA QUE<br>TRASCIENDE</h1>
+        <p class="hero__subtitle" data-reveal>
+          Diseñamos espacios atemporales donde la forma, la luz y la materia conviven en equilibrio.
+          Convertimos visiones ambiciosas en arquitectura construida.
+        </p>
+
+        <div class="hero__cta" data-reveal>
+          <a href="#proyectos" class="btn btn--outline">Ver Proyectos</a>
+          <a href="#contacto" class="btn btn--accent">Cotizar mi Proyecto</a>
+        </div>
+
+        <!-- Recuadro/frame con efecto de imagen "saliendo" del contenedor -->
+        <div class="hero-frame" data-reveal>
+          <div class="hero-frame__inner">
+            <img
+              class="hero-frame__image"
+              id="heroImage"
+              src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1600&q=80"
+              alt="Render de vivienda moderna minimalista diseñada por Kroma Studio"
+              loading="eager"
+            />
+            <div class="hero-frame__badge">
+              <span class="hero-frame__badge-num">2026</span>
+              <span class="hero-frame__badge-label">Proyecto&nbsp;Destacado</span>
+            </div>
+          </div>
+          <div class="hero-frame__caption">
+            <span>Residencia Cobre — Valle de Bravo</span>
+            <span class="hero-frame__caption-tag">Residencial · 480 m²</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============ SOBRE NOSOTROS ============ -->
+    <section class="about" id="nosotros">
+      <div class="container about__grid">
+
+        <div class="about__content" data-reveal>
+          <p class="eyebrow">Nuestra Filosofía</p>
+          <h2 class="section-title">Sobre Nosotros</h2>
+          <p class="about__text">
+            Desde nuestros inicios, en Kroma Studio concebimos la arquitectura como un ejercicio de
+            equilibrio entre lo racional y lo sensorial. Cada proyecto nace de un diálogo profundo con
+            el entorno, el cliente y el propósito del espacio, dando como resultado obras que no solo
+            se habitan, sino que se experimentan.
+          </p>
+          <p class="about__text">
+            Nuestro equipo multidisciplinario combina rigor técnico con una mirada contemporánea,
+            acompañando cada encargo desde el concepto inicial hasta la entrega final, garantizando
+            precisión, sostenibilidad y una identidad arquitectónica propia.
+          </p>
+
+          <div class="metrics">
+            <div class="metric" data-reveal>
+              <span class="metric__number" data-count="15">0</span><span class="metric__suffix">+</span>
+              <span class="metric__label">Años de Experiencia</span>
+            </div>
+            <div class="metric" data-reveal>
+              <span class="metric__number" data-count="120">0</span><span class="metric__suffix">+</span>
+              <span class="metric__label">Proyectos Completados</span>
+            </div>
+            <div class="metric" data-reveal>
+              <span class="metric__number" data-count="100">0</span><span class="metric__suffix">%</span>
+              <span class="metric__label">Atención Personalizada</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="about__visual" data-reveal>
+          <div class="about__frame">
+            <img
+              src="https://images.unsplash.com/photo-1487958449943-2429e8be8625?auto=format&fit=crop&w=1200&q=80"
+              alt="Interior arquitectónico contemporáneo con líneas limpias y luz natural"
+              loading="lazy"
+            />
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============ SERVICIOS ============ -->
+    <section class="services" id="servicios">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <p class="eyebrow">Lo que Hacemos</p>
+          <h2 class="section-title">Servicios</h2>
+          <p class="section-lead">Acompañamos cada proyecto en todas sus etapas, con soluciones a medida para cada necesidad.</p>
+        </div>
+
+        <div class="services__grid">
+          <article class="service-card" data-reveal>
+            <span class="service-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 48 48" width="28" height="28"><path d="M6 40h36M9 40V20l15-11 15 11v20M18 40V26h12v14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/></svg>
+            </span>
+            <h3>Diseño Arquitectónico</h3>
+            <p>Proyectos residenciales y comerciales con identidad propia, funcionalidad y alto valor estético.</p>
+          </article>
+
+          <article class="service-card" data-reveal>
+            <span class="service-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 48 48" width="28" height="28"><rect x="7" y="7" width="34" height="34" rx="4" fill="none" stroke="currentColor" stroke-width="2.5"/><path d="M7 30l9-9 8 7 9-11 8 9" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/></svg>
+            </span>
+            <h3>Interiorismo</h3>
+            <p>Diseño de interiores que armoniza materiales, mobiliario e iluminación en cada ambiente.</p>
+          </article>
+
+          <article class="service-card" data-reveal>
+            <span class="service-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 48 48" width="28" height="28"><path d="M24 5v6M24 37v6M5 24h6M37 24h6M10 10l4 4M34 34l4 4M38 10l-4 4M14 34l-4 4" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/><circle cx="24" cy="24" r="9" fill="none" stroke="currentColor" stroke-width="2.5"/></svg>
+            </span>
+            <h3>Renders &amp; Visualización 3D</h3>
+            <p>Recorridos y renders fotorrealistas para visualizar tu proyecto antes de construirlo.</p>
+          </article>
+
+          <article class="service-card" data-reveal>
+            <span class="service-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 48 48" width="28" height="28"><path d="M24 4l7 7-24 24-7 2 2-7 24-24z" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/><path d="M28 8l8 8" stroke="currentColor" stroke-width="2.5"/></svg>
+            </span>
+            <h3>Dirección de Obra</h3>
+            <p>Supervisión técnica integral que asegura fidelidad al diseño, calidad y cumplimiento de plazos.</p>
+          </article>
+
+          <article class="service-card" data-reveal>
+            <span class="service-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 48 48" width="28" height="28"><path d="M9 39V22l15-14 15 14v17H9z" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/><path d="M20 39V27h8v12" stroke="currentColor" stroke-width="2.5"/></svg>
+            </span>
+            <h3>Remodelación</h3>
+            <p>Intervenciones que renuevan y potencian espacios existentes sin perder su esencia.</p>
+          </article>
+
+          <article class="service-card" data-reveal>
+            <span class="service-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 48 48" width="28" height="28"><path d="M8 40h32M12 40V16h10v24M26 40V8h10v32" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/></svg>
+            </span>
+            <h3>Consultoría &amp; Planificación</h3>
+            <p>Asesoría en viabilidad, normativa y planificación urbana para decisiones seguras.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PROYECTOS ============ -->
+    <section class="projects" id="proyectos">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <p class="eyebrow">Portafolio</p>
+          <h2 class="section-title">Proyectos Recientes</h2>
+          <p class="section-lead">Una selección de obras que reflejan nuestra visión arquitectónica.</p>
+        </div>
+
+        <div class="projects__grid">
+          <article class="project-card project-card--large" data-reveal>
+            <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=80" alt="Casa moderna con alberca y grandes ventanales" loading="lazy">
+            <div class="project-card__overlay">
+              <span class="project-card__tag">Residencial</span>
+              <h3>Casa Horizonte</h3>
+              <a href="#contacto" class="project-card__link">Ver proyecto <span aria-hidden="true">→</span></a>
+            </div>
+          </article>
+
+          <article class="project-card" data-reveal>
+            <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=900&q=80" alt="Edificio corporativo de fachada geométrica" loading="lazy">
+            <div class="project-card__overlay">
+              <span class="project-card__tag">Comercial</span>
+              <h3>Torre Cobre</h3>
+              <a href="#contacto" class="project-card__link">Ver proyecto <span aria-hidden="true">→</span></a>
+            </div>
+          </article>
+
+          <article class="project-card" data-reveal>
+            <img src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=900&q=80" alt="Interior minimalista de sala de estar" loading="lazy">
+            <div class="project-card__overlay">
+              <span class="project-card__tag">Interiorismo</span>
+              <h3>Loft Nogal</h3>
+              <a href="#contacto" class="project-card__link">Ver proyecto <span aria-hidden="true">→</span></a>
+            </div>
+          </article>
+
+          <article class="project-card" data-reveal>
+            <img src="https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=900&q=80" alt="Fachada de vivienda contemporánea de dos niveles" loading="lazy">
+            <div class="project-card__overlay">
+              <span class="project-card__tag">Residencial</span>
+              <h3>Residencia Basalto</h3>
+              <a href="#contacto" class="project-card__link">Ver proyecto <span aria-hidden="true">→</span></a>
+            </div>
+          </article>
+
+          <article class="project-card project-card--large" data-reveal>
+            <img src="https://images.unsplash.com/photo-1479839672679-a46483c0e7c8?auto=format&fit=crop&w=1200&q=80" alt="Espacio arquitectónico con estructura de madera y concreto" loading="lazy">
+            <div class="project-card__overlay">
+              <span class="project-card__tag">Comercial</span>
+              <h3>Pabellón Cedro</h3>
+              <a href="#contacto" class="project-card__link">Ver proyecto <span aria-hidden="true">→</span></a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CITA / PRUEBA SOCIAL ============ -->
+    <section class="quote">
+      <div class="container quote__inner" data-reveal>
+        <svg class="quote__mark" viewBox="0 0 32 24" width="48" aria-hidden="true"><path d="M0 24V13.6C0 5.4 5.4 0 13 0v5.6c-4 0-6.4 2.6-6.6 6.8H10v11.6H0zm18 0V13.6C18 5.4 23.4 0 31 0v5.6c-4 0-6.4 2.6-6.6 6.8H28v11.6H18z" fill="currentColor"/></svg>
+        <p class="quote__text">"Kroma Studio transformó nuestra visión en un espacio que supera lo que imaginamos. Precisión, estética y una comunicación impecable durante todo el proceso."</p>
+        <p class="quote__author">— Familia Ramírez, Residencia Cobre</p>
+      </div>
+    </section>
+
+    <!-- ============ CONTACTO ============ -->
+    <section class="contact" id="contacto">
+      <div class="container contact__grid">
+
+        <div class="contact__info" data-reveal>
+          <p class="eyebrow">Hablemos</p>
+          <h2 class="section-title">Cotiza tu Proyecto</h2>
+          <p class="section-lead">
+            Cuéntanos tu idea y te contactaremos en menos de 24 horas para agendar una primera
+            consulta sin costo.
+          </p>
+
+          <ul class="contact__details">
+            <li>
+              <span class="contact__details-label">Teléfono</span>
+              <a href="tel:+525512345678">+52 55 1234 5678</a>
+            </li>
+            <li>
+              <span class="contact__details-label">Email</span>
+              <a href="mailto:hola@kromastudio.com">hola@kromastudio.com</a>
+            </li>
+            <li>
+              <span class="contact__details-label">Estudio</span>
+              <span>Ciudad de México, México</span>
+            </li>
+          </ul>
+        </div>
+
+        <form class="contact__form" id="contactForm" novalidate data-reveal>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">Nombre completo</label>
+              <input type="text" id="name" name="name" required autocomplete="name" placeholder="Tu nombre">
+              <span class="form-error">Ingresa tu nombre.</span>
+            </div>
+            <div class="form-group">
+              <label for="email">Correo electrónico</label>
+              <input type="email" id="email" name="email" required autocomplete="email" placeholder="tucorreo@ejemplo.com">
+              <span class="form-error">Ingresa un correo válido.</span>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="phone">Teléfono</label>
+              <input type="tel" id="phone" name="phone" autocomplete="tel" placeholder="+52 55 0000 0000">
+            </div>
+            <div class="form-group">
+              <label for="projectType">Tipo de proyecto</label>
+              <select id="projectType" name="projectType" required>
+                <option value="" disabled selected>Selecciona una opción</option>
+                <option value="residencial">Residencial</option>
+                <option value="comercial">Comercial</option>
+                <option value="interiorismo">Interiorismo</option>
+                <option value="remodelacion">Remodelación</option>
+                <option value="otro">Otro</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="message">Cuéntanos sobre tu proyecto</label>
+            <textarea id="message" name="message" rows="4" required placeholder="Ubicación, metros cuadrados, ideas iniciales..."></textarea>
+            <span class="form-error">Cuéntanos brevemente tu proyecto.</span>
+          </div>
+
+          <button type="submit" class="btn btn--accent btn--full" id="submitBtn">
+            <span class="btn__label">Enviar Solicitud</span>
+          </button>
+
+          <p class="form-success" id="formSuccess" role="status">
+            ¡Gracias! Tu solicitud fue enviada. Nuestro equipo te contactará muy pronto.
+          </p>
+        </form>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <a href="#home" class="logo">
+        <svg class="logo__mark" viewBox="0 0 100 100" width="32" height="32" aria-hidden="true">
+          <path d="M30 20 L30 80 M30 50 L70 20 M30 50 L70 80" stroke="#e8935c" stroke-width="9" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span class="logo__text">KROMA<span>STUDIO</span></span>
+      </a>
+
+      <ul class="footer__nav">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#proyectos">Proyectos</a></li>
+        <li><a href="#servicios">Servicios</a></li>
+        <li><a href="#nosotros">Sobre Nosotros</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+
+      <p class="footer__copy">&copy; <span id="year"></span> Kroma Studio. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- ============ BOTÓN FLOTANTE WHATSAPP ============ -->
+  <a
+    href="https://wa.me/525512345678?text=Hola%20Kroma%20Studio%2C%20quiero%20cotizar%20un%20proyecto"
+    class="whatsapp-fab"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Escríbenos por WhatsApp"
+  >
+    <span class="whatsapp-fab__ring"></span>
+    <svg viewBox="0 0 32 32" width="26" height="26" fill="currentColor" aria-hidden="true">
+      <path d="M16.001 2.667c-7.363 0-13.334 5.97-13.334 13.333 0 2.354.615 4.65 1.782 6.667L2.667 29.333l6.822-1.789a13.27 13.27 0 0 0 6.512 1.72h.006c7.362 0 13.333-5.97 13.333-13.333 0-3.562-1.388-6.912-3.907-9.43a13.24 13.24 0 0 0-9.432-3.834zm0 24.4h-.005a11.05 11.05 0 0 1-5.635-1.543l-.404-.24-4.05 1.062 1.082-3.947-.264-.406a11.04 11.04 0 0 1-1.692-5.893c0-6.1 4.966-11.067 11.073-11.067a11 11 0 0 1 7.83 3.245 10.99 10.99 0 0 1 3.242 7.83c-.002 6.1-4.968 11.06-11.077 11.06zm6.07-8.284c-.333-.167-1.966-.97-2.27-1.08-.305-.112-.527-.167-.75.166-.222.334-.86 1.08-1.054 1.303-.194.223-.389.25-.722.084-.334-.167-1.407-.519-2.68-1.653-.99-.883-1.66-1.974-1.854-2.307-.194-.334-.02-.514.146-.68.15-.15.334-.39.5-.585.167-.195.223-.334.334-.556.111-.223.056-.417-.028-.584-.083-.167-.75-1.807-1.028-2.475-.27-.65-.546-.562-.75-.573l-.639-.012c-.222 0-.583.083-.888.417-.305.333-1.166 1.14-1.166 2.78s1.194 3.224 1.36 3.446c.167.223 2.35 3.588 5.694 5.032.795.343 1.415.548 1.898.702.797.254 1.522.218 2.096.132.639-.095 1.966-.804 2.244-1.581.278-.777.278-1.443.194-1.581-.083-.14-.305-.223-.639-.39z"/>
+    </svg>
+  </a>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
