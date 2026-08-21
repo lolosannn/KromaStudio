@@ -275,54 +275,97 @@ section { position: relative; padding: 120px 0; }
   flex-wrap: wrap;
 }
 
-/* --- Recuadro / Frame con imagen que "sobresale" (efecto 3D) --- */
+/* --- Recuadro / Frame: mockup de fondo + foto que se desliza y "sobresale" (efecto 3D) --- */
 .hero-frame {
-  position: relative;
-  margin: 96px auto 0;
+  margin: 110px auto 0;
   max-width: 980px;
-  border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  padding: clamp(20px, 4vw, 40px);
-  background: linear-gradient(180deg, rgba(255,255,255,0.025), rgba(255,255,255,0));
+  padding: 0;
+}
+
+/* Contexto de posicionamiento propio para el mockup + la foto/badge que sobresalen,
+   separado de la leyenda para que el offset de la foto nunca la pise. */
+.hero-frame__stage {
+  position: relative;
   overflow: visible;
 }
 
-.hero-frame__inner {
+/* Mockup tipo navegador que hace de contenedor/fondo del hero visual */
+.hero-frame__browser {
   position: relative;
   aspect-ratio: 16 / 9.4;
-  border-radius: var(--radius-md);
-  background: var(--bg-alt);
-  overflow: visible;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: linear-gradient(160deg, #17171b 0%, #0c0c0e 100%);
+  padding: clamp(20px, 3.2vw, 34px) clamp(22px, 3.6vw, 40px);
+  overflow: hidden;
+  box-shadow: 0 60px 120px -40px rgba(0, 0, 0, 0.6);
 }
 
-.hero-frame__image {
-  position: absolute;
-  inset: -6% -8%;
-  width: 112%;
-  height: 112%;
-  object-fit: cover;
-  border-radius: var(--radius-md);
-  box-shadow: 0 50px 90px -30px rgba(0, 0, 0, 0.65), 0 0 0 1px rgba(255,255,255,0.06);
+.hero-frame__browser-bar { display: flex; align-items: center; gap: 7px; margin-bottom: clamp(24px, 4vw, 40px); }
+.hero-frame__dot { width: 9px; height: 9px; border-radius: 50%; background: rgba(255, 255, 255, 0.14); }
+.hero-frame__browser-url {
+  margin-left: 14px;
+  font-size: 0.72rem;
+  color: var(--text-faint);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border);
+  padding: 5px 14px;
+  border-radius: 999px;
+}
 
-  /* Estado inicial: escalado, desplazado y transparente */
+.hero-frame__browser-nav {
+  display: flex;
+  gap: clamp(16px, 2.4vw, 28px);
+  font-size: 0.78rem;
+  color: var(--text-faint);
+  margin-bottom: clamp(24px, 4vw, 40px);
+}
+
+.hero-frame__browser-title {
+  font-family: "Space Grotesk", sans-serif;
+  font-weight: 700;
+  line-height: 1.12;
+  font-size: clamp(1.3rem, 3.6vw, 2.5rem);
+  color: rgba(244, 243, 239, 0.16);
+  letter-spacing: -0.01em;
+}
+
+/* La foto/render: entra deslizándose desde afuera y queda sobresaliendo del marco */
+.hero-frame__photo {
+  position: absolute;
+  z-index: 3;
+  left: clamp(-24px, -4%, -10px);
+  bottom: clamp(-48px, -14%, -22px);
+  width: min(62%, 480px);
+  aspect-ratio: 4 / 3;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: 0 55px 90px -25px rgba(0, 0, 0, 0.75), 0 0 0 1px rgba(255, 255, 255, 0.05);
+
+  /* Estado inicial: fuera de encuadre, escalada y rotada levemente */
   opacity: 0;
-  transform: scale(0.82) translate3d(-2%, 7%, 0);
-  transform-origin: center bottom;
+  transform: translate3d(-8%, 22%, 0) scale(0.78) rotate(-2.5deg);
+  transform-origin: bottom left;
   transition:
     opacity 1.1s var(--ease-out-expo),
-    transform 1.35s var(--ease-out-expo);
+    transform 1.4s var(--ease-out-expo);
+  will-change: transform, opacity;
 }
 
 /* Se activa vía JS al cargar la página (alto rendimiento: solo transform/opacity) */
-.hero-frame__image.is-loaded {
+.hero-frame__photo.is-loaded {
   opacity: 1;
-  transform: scale(1) translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0) scale(1) rotate(0deg);
 }
+
+.hero-frame__photo img { width: 100%; height: 100%; object-fit: cover; }
 
 .hero-frame__badge {
   position: absolute;
-  bottom: -22px;
-  left: -22px;
+  z-index: 4;
+  top: clamp(-18px, -4%, -10px);
+  right: clamp(-14px, -3%, -6px);
   display: flex;
   flex-direction: column;
   gap: 2px;
@@ -330,12 +373,12 @@ section { position: relative; padding: 120px 0; }
   border: 1px solid var(--border-strong);
   border-radius: var(--radius-sm);
   padding: 12px 18px;
-  box-shadow: 0 20px 40px -16px rgba(0,0,0,0.6);
+  box-shadow: 0 20px 40px -16px rgba(0, 0, 0, 0.6);
   opacity: 0;
-  transform: translateY(16px);
-  transition: opacity 0.9s var(--ease-out-expo) 0.5s, transform 0.9s var(--ease-out-expo) 0.5s;
+  transform: translateY(-14px) scale(0.92);
+  transition: opacity 0.9s var(--ease-out-expo) 0.55s, transform 0.9s var(--ease-out-expo) 0.55s;
 }
-.hero-frame__badge.is-loaded { opacity: 1; transform: translateY(0); }
+.hero-frame__badge.is-loaded { opacity: 1; transform: translateY(0) scale(1); }
 .hero-frame__badge-num { font-family: "Space Grotesk", sans-serif; font-weight: 700; color: var(--accent-light); font-size: 1.05rem; }
 .hero-frame__badge-label { font-size: 0.72rem; color: var(--text-muted); letter-spacing: 0.04em; }
 
@@ -344,7 +387,7 @@ section { position: relative; padding: 120px 0; }
   justify-content: space-between;
   align-items: baseline;
   gap: 12px;
-  margin-top: 30px;
+  margin-top: 64px;
   padding-inline: 4px;
   font-size: 0.92rem;
   color: var(--text-muted);
@@ -661,7 +704,7 @@ section { position: relative; padding: 120px 0; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
   [data-reveal] { opacity: 1; transform: none; }
-  .hero-frame__image, .hero-frame__badge { opacity: 1; transform: none; }
+  .hero-frame__photo, .hero-frame__badge { opacity: 1; transform: none; }
 }
 
 /* ---------- 13. Responsive ---------- */
@@ -697,6 +740,8 @@ section { position: relative; padding: 120px 0; }
   .projects__grid { grid-template-columns: 1fr; }
   .project-card--large { grid-column: span 1; }
   .metrics { grid-template-columns: 1fr 1fr; row-gap: 24px; }
-  .hero-frame__badge { left: 12px; bottom: -18px; padding: 10px 14px; }
+  .hero-frame { margin-top: 84px; }
+  .hero-frame__photo { width: min(72%, 320px); left: -12px; bottom: -34px; }
+  .hero-frame__badge { top: -14px; right: -8px; padding: 10px 14px; }
   .footer__inner { flex-direction: column; text-align: center; }
 }

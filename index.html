@@ -57,7 +57,7 @@
       <div class="hero__glow" aria-hidden="true"></div>
       <div class="container hero__inner">
 
-        <p class="eyebrow" data-reveal>Estudio de Arquitectura &amp; Diseño</p>
+        <p class="eyebrow" data-reveal>Estudio de Arquitectura &amp; Diseño — Buenos Aires, Argentina</p>
         <h1 class="hero__title" data-reveal>ARQUITECTURA QUE<br>TRASCIENDE</h1>
         <p class="hero__subtitle" data-reveal>
           Diseñamos espacios atemporales donde la forma, la luz y la materia conviven en equilibrio.
@@ -69,23 +69,44 @@
           <a href="#contacto" class="btn btn--accent">Cotizar mi Proyecto</a>
         </div>
 
-        <!-- Recuadro/frame con efecto de imagen "saliendo" del contenedor -->
+        <!-- Recuadro/frame: mockup de fondo + foto que se desliza y sobresale del marco (efecto 3D) -->
         <div class="hero-frame" data-reveal>
-          <div class="hero-frame__inner">
-            <img
-              class="hero-frame__image"
-              id="heroImage"
-              src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1600&q=80"
-              alt="Render de vivienda moderna minimalista diseñada por Kroma Studio"
-              loading="eager"
-            />
-            <div class="hero-frame__badge">
+
+          <!-- "Stage": contiene el mockup + la foto/badge que sobresalen, como contexto de posicionamiento propio -->
+          <div class="hero-frame__stage">
+
+            <!-- Mockup tipo "browser" que actúa de fondo/contenedor -->
+            <div class="hero-frame__browser">
+              <div class="hero-frame__browser-bar">
+                <span class="hero-frame__dot"></span>
+                <span class="hero-frame__dot"></span>
+                <span class="hero-frame__dot"></span>
+                <span class="hero-frame__browser-url">kromastudio.com.ar</span>
+              </div>
+              <nav class="hero-frame__browser-nav">
+                <span>Home</span><span>Proyectos</span><span>Servicios</span><span>Contacto</span>
+              </nav>
+              <p class="hero-frame__browser-title">ARQUITECTURA<br>DE VANGUARDIA</p>
+            </div>
+
+            <!-- Foto/render flotante: sale disparada desde afuera y queda sobresaliendo del marco -->
+            <figure class="hero-frame__photo" id="heroPhoto">
+              <img
+                id="heroImage"
+                src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80"
+                alt="Render de vivienda moderna minimalista diseñada por Kroma Studio"
+                loading="eager"
+              />
+            </figure>
+
+            <div class="hero-frame__badge" id="heroBadge">
               <span class="hero-frame__badge-num">2026</span>
               <span class="hero-frame__badge-label">Proyecto&nbsp;Destacado</span>
             </div>
           </div>
+
           <div class="hero-frame__caption">
-            <span>Residencia Cobre — Valle de Bravo</span>
+            <span>Residencia Cobre — Nordelta, Buenos Aires</span>
             <span class="hero-frame__caption-tag">Residencial · 480 m²</span>
           </div>
         </div>
@@ -284,15 +305,15 @@
           <ul class="contact__details">
             <li>
               <span class="contact__details-label">Teléfono</span>
-              <a href="tel:+525512345678">+52 55 1234 5678</a>
+              <a href="tel:+5491160632441">+54 9 11 6063-2441</a>
             </li>
             <li>
               <span class="contact__details-label">Email</span>
-              <a href="mailto:hola@kromastudio.com">hola@kromastudio.com</a>
+              <a href="mailto:hola@kromastudio.com.ar">hola@kromastudio.com.ar</a>
             </li>
             <li>
               <span class="contact__details-label">Estudio</span>
-              <span>Ciudad de México, México</span>
+              <span>Buenos Aires, Argentina</span>
             </li>
           </ul>
         </div>
@@ -373,7 +394,7 @@
 
   <!-- ============ BOTÓN FLOTANTE WHATSAPP ============ -->
   <a
-    href="https://wa.me/525512345678?text=Hola%20Kroma%20Studio%2C%20quiero%20cotizar%20un%20proyecto"
+    href="https://wa.me/5491160632441?text=Hola%20Kroma%20Studio%2C%20quiero%20cotizar%20un%20proyecto"
     class="whatsapp-fab"
     target="_blank"
     rel="noopener noreferrer"

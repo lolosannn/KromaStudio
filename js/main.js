@@ -44,16 +44,17 @@
     });
   });
 
-  /* ---------- 3. Animación de entrada del Hero (imagen "saliendo" del frame) ---------- */
+  /* ---------- 3. Animación de entrada del Hero (foto deslizándose y "saliendo" del frame) ---------- */
   const heroImage = document.getElementById('heroImage');
-  const heroBadge = document.querySelector('.hero-frame__badge');
+  const heroPhoto = document.getElementById('heroPhoto');
+  const heroBadge = document.getElementById('heroBadge');
 
   function playHeroIntro() {
     // requestAnimationFrame asegura que el navegador registre el estado inicial
     // antes de aplicar la clase que dispara la transición (transform/opacity: alto rendimiento).
     requestAnimationFrame(() => {
       requestAnimationFrame(() => {
-        heroImage.classList.add('is-loaded');
+        if (heroPhoto) heroPhoto.classList.add('is-loaded');
         if (heroBadge) heroBadge.classList.add('is-loaded');
       });
     });
