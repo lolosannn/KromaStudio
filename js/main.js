@@ -44,26 +44,23 @@
     });
   });
 
-  /* ---------- 3. Animación de entrada del Hero (foto deslizándose y "saliendo" del frame) ---------- */
-  const heroImage = document.getElementById('heroImage');
-  const heroPhoto = document.getElementById('heroPhoto');
-  const heroBadge = document.getElementById('heroBadge');
+  /* ---------- 3. Animación de entrada del Hero (el edificio sube y sobresale del marco) ---------- */
+  const heroBuilding = document.getElementById('heroBuilding');
 
   function playHeroIntro() {
-    // requestAnimationFrame asegura que el navegador registre el estado inicial
-    // antes de aplicar la clase que dispara la transición (transform/opacity: alto rendimiento).
+    // requestAnimationFrame asegura que el navegador registre el estado inicial (alineado,
+    // sin costura) antes de aplicar la clase que dispara la transición (solo transform: alto rendimiento).
     requestAnimationFrame(() => {
       requestAnimationFrame(() => {
-        if (heroPhoto) heroPhoto.classList.add('is-loaded');
-        if (heroBadge) heroBadge.classList.add('is-loaded');
+        if (heroBuilding) heroBuilding.classList.add('is-loaded');
       });
     });
   }
 
-  if (heroImage.complete) {
+  if (heroBuilding && heroBuilding.complete) {
     playHeroIntro();
-  } else {
-    heroImage.addEventListener('load', playHeroIntro, { once: true });
+  } else if (heroBuilding) {
+    heroBuilding.addEventListener('load', playHeroIntro, { once: true });
     // Fallback por si la imagen tarda o falla en cargar
     setTimeout(playHeroIntro, 1200);
   }

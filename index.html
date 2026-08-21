@@ -69,45 +69,62 @@
           <a href="#contacto" class="btn btn--accent">Cotizar mi Proyecto</a>
         </div>
 
-        <!-- Recuadro/frame: mockup de fondo + foto que se desliza y sobresale del marco (efecto 3D) -->
-        <div class="hero-frame" data-reveal>
+        <!-- Recuadro/frame: la foto queda fija, y el edificio (recortado de la misma foto) se
+             desliza hacia arriba y sobresale por encima del marco (efecto 3D, solo transform/opacity). -->
+        <div class="hero-visual" data-reveal>
 
-          <!-- "Stage": contiene el mockup + la foto/badge que sobresalen, como contexto de posicionamiento propio -->
-          <div class="hero-frame__stage">
+          <!-- Definiciones SVG ocultas: mismas dos máscaras (silueta del edificio y su "agujero"),
+               con difuminado de borde, reutilizadas por las dos capas de imagen de abajo. -->
+          <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+            <defs>
+              <filter id="heroMaskFeather" x="-20%" y="-20%" width="140%" height="140%">
+                <feGaussianBlur in="SourceGraphic" stdDeviation="0.012"></feGaussianBlur>
+              </filter>
+              <mask id="heroBuildingMask" maskContentUnits="objectBoundingBox">
+                <rect x="0" y="0" width="1" height="1" fill="black"></rect>
+                <path filter="url(#heroMaskFeather)" fill="white" d="
+                  M 0.476,0.099
+                  L 0.534,0.124 0.536,0.169 0.534,0.221 0.541,0.273 0.552,0.326
+                  L 0.399,0.326 0.410,0.273 0.417,0.221 0.415,0.169 0.417,0.124
+                  Z"></path>
+              </mask>
+              <mask id="heroPlateMask" maskContentUnits="objectBoundingBox">
+                <rect x="0" y="0" width="1" height="1" fill="white"></rect>
+                <path filter="url(#heroMaskFeather)" fill="black" d="
+                  M 0.476,0.099
+                  L 0.534,0.124 0.536,0.169 0.534,0.221 0.541,0.273 0.552,0.326
+                  L 0.399,0.326 0.410,0.273 0.417,0.221 0.415,0.169 0.417,0.124
+                  Z"></path>
+              </mask>
+            </defs>
+          </svg>
 
-            <!-- Mockup tipo "browser" que actúa de fondo/contenedor -->
-            <div class="hero-frame__browser">
-              <div class="hero-frame__browser-bar">
-                <span class="hero-frame__dot"></span>
-                <span class="hero-frame__dot"></span>
-                <span class="hero-frame__dot"></span>
-                <span class="hero-frame__browser-url">kromastudio.com.ar</span>
-              </div>
-              <nav class="hero-frame__browser-nav">
-                <span>Home</span><span>Proyectos</span><span>Servicios</span><span>Contacto</span>
-              </nav>
-              <p class="hero-frame__browser-title">ARQUITECTURA<br>DE VANGUARDIA</p>
-            </div>
-
-            <!-- Foto/render flotante: sale disparada desde afuera y queda sobresaliendo del marco -->
-            <figure class="hero-frame__photo" id="heroPhoto">
+          <div class="hero-visual__stage">
+            <!-- Marco visible: contiene la foto de fondo con un "agujero" con la forma del edificio -->
+            <div class="hero-visual__frame">
               <img
-                id="heroImage"
-                src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80"
-                alt="Render de vivienda moderna minimalista diseñada por Kroma Studio"
+                class="hero-visual__plate"
+                src="assets/hero-building.jpg"
+                alt="Torre residencial contemporánea al atardecer, diseñada por Kroma Studio"
                 loading="eager"
               />
-            </figure>
-
-            <div class="hero-frame__badge" id="heroBadge">
-              <span class="hero-frame__badge-num">2026</span>
-              <span class="hero-frame__badge-label">Proyecto&nbsp;Destacado</span>
             </div>
+
+            <!-- El edificio recortado de la misma foto: arranca alineado (invisible la costura) y
+                 sube hasta sobresalir por encima del marco. -->
+            <img
+              class="hero-visual__building"
+              id="heroBuilding"
+              src="assets/hero-building.jpg"
+              alt=""
+              aria-hidden="true"
+              loading="eager"
+            />
           </div>
 
-          <div class="hero-frame__caption">
-            <span>Residencia Cobre — Nordelta, Buenos Aires</span>
-            <span class="hero-frame__caption-tag">Residencial · 480 m²</span>
+          <div class="hero-visual__caption">
+            <span>Kroma House — Los Ángeles, California</span>
+            <span class="hero-visual__caption-tag">Residencial · Proyecto internacional</span>
           </div>
         </div>
 
