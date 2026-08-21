@@ -119,6 +119,192 @@
   );
   counters.forEach((el) => counterObserver.observe(el));
 
+  /* ---------- 5b. Modal de detalle de proyecto (contenido de ejemplo) ---------- */
+  const PROJECTS = {
+    'casa-horizonte': {
+      tag: 'Residencial',
+      title: 'Casa Horizonte',
+      location: 'Nordelta, Buenos Aires',
+      year: '2024',
+      area: '520 m²',
+      typology: 'Vivienda unifamiliar',
+      description: [
+        'Emplazada frente al espejo de agua de Nordelta, Casa Horizonte se organiza en dos volúmenes horizontales que se deslizan entre sí, enmarcando las vistas al lago y disolviendo el límite entre el interior y el paisaje.',
+        'Los planos de hormigón visto conviven con grandes paños de vidrio de piso a techo y carpinterías de aluminio negro, logrando una arquitectura serena que prioriza la luz natural y la conexión constante con el exterior.',
+      ],
+      images: [
+        'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1400&q=80',
+        'https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?auto=format&fit=crop&w=600&q=80',
+        'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=600&q=80',
+      ],
+    },
+    'torre-cobre': {
+      tag: 'Comercial',
+      title: 'Torre Cobre',
+      location: 'Puerto Madero, Buenos Aires',
+      year: '2023',
+      area: '3.200 m²',
+      typology: 'Edificio corporativo',
+      description: [
+        'Torre Cobre propone una nueva fachada para el corredor de Puerto Madero: paneles de aluminio anodizado en tono cobrizo que filtran la radiación solar directa mientras generan un juego cromático cambiante a lo largo del día.',
+        'La planta libre y el núcleo de servicios perimetral permiten una flexibilidad total de layout, pensada para oficinas corporativas de alta gama con certificación de sustentabilidad en trámite.',
+      ],
+      images: [
+        'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1400&q=80',
+        'https://images.unsplash.com/photo-1493809842364-78817add7ffb?auto=format&fit=crop&w=600&q=80',
+        'https://images.unsplash.com/photo-1449844908441-8829872d2607?auto=format&fit=crop&w=600&q=80',
+      ],
+    },
+    'loft-nogal': {
+      tag: 'Interiorismo',
+      title: 'Loft Nogal',
+      location: 'Palermo, Buenos Aires',
+      year: '2025',
+      area: '95 m²',
+      typology: 'Reciclaje de loft industrial',
+      description: [
+        'Loft Nogal reconvierte un antiguo depósito de Palermo en una vivienda de un solo ambiente jerarquizado, conservando los ladrillos vistos y la estructura metálica original como testigos de su pasado industrial.',
+        'La paleta combina madera de nogal, acero negro y textiles crudos, creando una atmósfera cálida que contrasta con la crudeza de los materiales existentes, resuelta con iluminación indirecta y mobiliario a medida.',
+      ],
+      images: [
+        'https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=1400&q=80',
+        'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=600&q=80',
+        'https://images.unsplash.com/photo-1487958449943-2429e8be8625?auto=format&fit=crop&w=600&q=80',
+      ],
+    },
+    'residencia-basalto': {
+      tag: 'Residencial',
+      title: 'Residencia Basalto',
+      location: 'Cariló, Costa Atlántica',
+      year: '2022',
+      area: '340 m²',
+      typology: 'Casa de fin de semana',
+      description: [
+        'Entre los pinos de Cariló, Residencia Basalto se compone de volúmenes macizos revestidos en piedra basáltica que anclan la construcción al terreno, en diálogo directo con la vegetación nativa.',
+        'Los ambientes sociales se abren hacia una galería perimetral de madera que actúa como filtro climático, mientras que los dormitorios se retranquean en busca de privacidad y silencio.',
+      ],
+      images: [
+        'https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=1400&q=80',
+        'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=600&q=80',
+        'https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?auto=format&fit=crop&w=600&q=80',
+      ],
+    },
+    'pabellon-cedro': {
+      tag: 'Comercial',
+      title: 'Pabellón Cedro',
+      location: 'Bariloche, Río Negro',
+      year: '2024',
+      area: '680 m²',
+      typology: 'Pabellón gastronómico',
+      description: [
+        'Pabellón Cedro es una estructura de madera laminada que se despliega frente al lago Nahuel Huapi, combinando una lógica constructiva de bajo impacto con una escala monumental que dialoga con el paisaje patagónico.',
+        'Los cerramientos de vidrio corredizo permiten integrar por completo la terraza exterior al salón principal en temporada estival, mientras que el volumen cerrado ofrece resguardo térmico durante el invierno.',
+      ],
+      images: [
+        'https://images.unsplash.com/photo-1479839672679-a46483c0e7c8?auto=format&fit=crop&w=1400&q=80',
+        'https://images.unsplash.com/photo-1449844908441-8829872d2607?auto=format&fit=crop&w=600&q=80',
+        'https://images.unsplash.com/photo-1493809842364-78817add7ffb?auto=format&fit=crop&w=600&q=80',
+      ],
+    },
+  };
+
+  const projectModal = document.getElementById('projectModal');
+  const projectModalBackdrop = document.getElementById('projectModalBackdrop');
+  const projectModalClose = document.getElementById('projectModalClose');
+  const projectModalImage = document.getElementById('projectModalImage');
+  const projectModalThumbs = document.getElementById('projectModalThumbs');
+  const projectModalTag = document.getElementById('projectModalTag');
+  const projectModalTitle = document.getElementById('projectModalTitle');
+  const projectModalMeta = document.getElementById('projectModalMeta');
+  const projectModalDescription1 = document.getElementById('projectModalDescription1');
+  const projectModalDescription2 = document.getElementById('projectModalDescription2');
+  const projectModalSpecs = document.getElementById('projectModalSpecs');
+
+  let lastFocusedElement = null;
+
+  function renderSpec(label, value) {
+    return `<div class="project-modal__spec">
+      <span class="project-modal__spec-label">${label}</span>
+      <span class="project-modal__spec-value">${value}</span>
+    </div>`;
+  }
+
+  function setMainImage(src, alt) {
+    projectModalImage.src = src;
+    projectModalImage.alt = alt;
+  }
+
+  function openProjectModal(id, triggerEl) {
+    const data = PROJECTS[id];
+    if (!data) return;
+
+    lastFocusedElement = triggerEl || document.activeElement;
+
+    projectModalTag.textContent = data.tag;
+    projectModalTitle.textContent = data.title;
+    projectModalMeta.textContent = `${data.location} · ${data.year} · ${data.area}`;
+    projectModalDescription1.textContent = data.description[0];
+    projectModalDescription2.textContent = data.description[1];
+
+    projectModalSpecs.innerHTML =
+      renderSpec('Ubicación', data.location) +
+      renderSpec('Tipología', data.typology) +
+      renderSpec('Superficie', data.area) +
+      renderSpec('Año', data.year);
+
+    setMainImage(data.images[0], `${data.title} — imagen principal`);
+
+    projectModalThumbs.innerHTML = data.images
+      .map(
+        (src, i) =>
+          `<button type="button" class="project-modal__thumb${i === 0 ? ' is-active' : ''}" data-index="${i}" aria-label="Ver imagen ${i + 1} de ${data.title}">
+            <img src="${src}" alt="" loading="lazy">
+          </button>`
+      )
+      .join('');
+
+    projectModalThumbs.querySelectorAll('.project-modal__thumb').forEach((thumb) => {
+      thumb.addEventListener('click', () => {
+        const index = Number(thumb.dataset.index);
+        setMainImage(data.images[index], `${data.title} — imagen ${index + 1}`);
+        projectModalThumbs
+          .querySelectorAll('.project-modal__thumb')
+          .forEach((t) => t.classList.toggle('is-active', t === thumb));
+      });
+    });
+
+    projectModal.classList.add('is-open');
+    projectModal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    projectModalClose.focus();
+  }
+
+  function closeProjectModal() {
+    projectModal.classList.remove('is-open');
+    projectModal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+    if (lastFocusedElement) lastFocusedElement.focus();
+  }
+
+  document.querySelectorAll('.project-card[data-project]').forEach((card) => {
+    card.addEventListener('click', () => openProjectModal(card.dataset.project, card));
+    card.addEventListener('keydown', (event) => {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        openProjectModal(card.dataset.project, card);
+      }
+    });
+  });
+
+  projectModalClose.addEventListener('click', closeProjectModal);
+  projectModalBackdrop.addEventListener('click', closeProjectModal);
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && projectModal.classList.contains('is-open')) closeProjectModal();
+  });
+
+  // El CTA dentro del modal cierra el modal y deja que el smooth scroll nativo lleve a #contacto
+  document.getElementById('projectModalCta').addEventListener('click', closeProjectModal);
+
   /* ---------- 6. Formulario de contacto (validación + feedback) ---------- */
   const form = document.getElementById('contactForm');
   const submitBtn = document.getElementById('submitBtn');

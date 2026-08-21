@@ -233,53 +233,83 @@
         </div>
 
         <div class="projects__grid">
-          <article class="project-card project-card--large" data-reveal>
+          <article class="project-card project-card--large" data-reveal data-project="casa-horizonte" tabindex="0" role="button" aria-haspopup="dialog">
             <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=80" alt="Casa moderna con alberca y grandes ventanales" loading="lazy">
             <div class="project-card__overlay">
               <span class="project-card__tag">Residencial</span>
               <h3>Casa Horizonte</h3>
-              <a href="#contacto" class="project-card__link">Ver proyecto <span aria-hidden="true">→</span></a>
+              <span class="project-card__link">Ver proyecto <span aria-hidden="true">→</span></span>
             </div>
           </article>
 
-          <article class="project-card" data-reveal>
+          <article class="project-card" data-reveal data-project="torre-cobre" tabindex="0" role="button" aria-haspopup="dialog">
             <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=900&q=80" alt="Edificio corporativo de fachada geométrica" loading="lazy">
             <div class="project-card__overlay">
               <span class="project-card__tag">Comercial</span>
               <h3>Torre Cobre</h3>
-              <a href="#contacto" class="project-card__link">Ver proyecto <span aria-hidden="true">→</span></a>
+              <span class="project-card__link">Ver proyecto <span aria-hidden="true">→</span></span>
             </div>
           </article>
 
-          <article class="project-card" data-reveal>
+          <article class="project-card" data-reveal data-project="loft-nogal" tabindex="0" role="button" aria-haspopup="dialog">
             <img src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=900&q=80" alt="Interior minimalista de sala de estar" loading="lazy">
             <div class="project-card__overlay">
               <span class="project-card__tag">Interiorismo</span>
               <h3>Loft Nogal</h3>
-              <a href="#contacto" class="project-card__link">Ver proyecto <span aria-hidden="true">→</span></a>
+              <span class="project-card__link">Ver proyecto <span aria-hidden="true">→</span></span>
             </div>
           </article>
 
-          <article class="project-card" data-reveal>
+          <article class="project-card" data-reveal data-project="residencia-basalto" tabindex="0" role="button" aria-haspopup="dialog">
             <img src="https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=900&q=80" alt="Fachada de vivienda contemporánea de dos niveles" loading="lazy">
             <div class="project-card__overlay">
               <span class="project-card__tag">Residencial</span>
               <h3>Residencia Basalto</h3>
-              <a href="#contacto" class="project-card__link">Ver proyecto <span aria-hidden="true">→</span></a>
+              <span class="project-card__link">Ver proyecto <span aria-hidden="true">→</span></span>
             </div>
           </article>
 
-          <article class="project-card project-card--large" data-reveal>
+          <article class="project-card project-card--large" data-reveal data-project="pabellon-cedro" tabindex="0" role="button" aria-haspopup="dialog">
             <img src="https://images.unsplash.com/photo-1479839672679-a46483c0e7c8?auto=format&fit=crop&w=1200&q=80" alt="Espacio arquitectónico con estructura de madera y concreto" loading="lazy">
             <div class="project-card__overlay">
               <span class="project-card__tag">Comercial</span>
               <h3>Pabellón Cedro</h3>
-              <a href="#contacto" class="project-card__link">Ver proyecto <span aria-hidden="true">→</span></a>
+              <span class="project-card__link">Ver proyecto <span aria-hidden="true">→</span></span>
             </div>
           </article>
         </div>
       </div>
     </section>
+
+    <!-- ============ MODAL DE DETALLE DE PROYECTO ============ -->
+    <div class="project-modal" id="projectModal" aria-hidden="true">
+      <div class="project-modal__backdrop" id="projectModalBackdrop"></div>
+      <div class="project-modal__panel" role="dialog" aria-modal="true" aria-labelledby="projectModalTitle">
+        <button type="button" class="project-modal__close" id="projectModalClose" aria-label="Cerrar">
+          <svg viewBox="0 0 24 24" width="18" height="18"><path d="M5 5l14 14M19 5L5 19" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </button>
+
+        <div class="project-modal__gallery">
+          <img class="project-modal__main-image" id="projectModalImage" src="" alt="">
+          <div class="project-modal__thumbs" id="projectModalThumbs"></div>
+        </div>
+
+        <div class="project-modal__body">
+          <div class="project-modal__heading">
+            <span class="project-modal__tag" id="projectModalTag"></span>
+            <h3 id="projectModalTitle"></h3>
+            <p class="project-modal__meta" id="projectModalMeta"></p>
+          </div>
+
+          <p class="project-modal__text" id="projectModalDescription1"></p>
+          <p class="project-modal__text" id="projectModalDescription2"></p>
+
+          <div class="project-modal__specs" id="projectModalSpecs"></div>
+
+          <a href="#contacto" class="btn btn--accent project-modal__cta" id="projectModalCta">Cotizar un proyecto similar</a>
+        </div>
+      </div>
+    </div>
 
     <!-- ============ CITA / PRUEBA SOCIAL ============ -->
     <section class="quote">
