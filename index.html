@@ -69,62 +69,20 @@
           <a href="#contacto" class="btn btn--accent">Cotizar mi Proyecto</a>
         </div>
 
-        <!-- Recuadro/frame: la foto queda fija, y el edificio (recortado de la misma foto) se
-             desliza hacia arriba y sobresale por encima del marco (efecto 3D, solo transform/opacity). -->
+        <!-- Recuadro/frame: imagen estática del edificio -->
         <div class="hero-visual" data-reveal>
-
-          <!-- Definiciones SVG ocultas: mismas dos máscaras (silueta del edificio y su "agujero"),
-               con difuminado de borde, reutilizadas por las dos capas de imagen de abajo. -->
-          <svg width="0" height="0" style="position:absolute" aria-hidden="true">
-            <defs>
-              <filter id="heroMaskFeather" x="-20%" y="-20%" width="140%" height="140%">
-                <feGaussianBlur in="SourceGraphic" stdDeviation="0.012"></feGaussianBlur>
-              </filter>
-              <mask id="heroBuildingMask" maskContentUnits="objectBoundingBox">
-                <rect x="0" y="0" width="1" height="1" fill="black"></rect>
-                <path filter="url(#heroMaskFeather)" fill="white" d="
-                  M 0.476,0.099
-                  L 0.534,0.124 0.536,0.169 0.534,0.221 0.541,0.273 0.552,0.326
-                  L 0.399,0.326 0.410,0.273 0.417,0.221 0.415,0.169 0.417,0.124
-                  Z"></path>
-              </mask>
-              <mask id="heroPlateMask" maskContentUnits="objectBoundingBox">
-                <rect x="0" y="0" width="1" height="1" fill="white"></rect>
-                <path filter="url(#heroMaskFeather)" fill="black" d="
-                  M 0.476,0.099
-                  L 0.534,0.124 0.536,0.169 0.534,0.221 0.541,0.273 0.552,0.326
-                  L 0.399,0.326 0.410,0.273 0.417,0.221 0.415,0.169 0.417,0.124
-                  Z"></path>
-              </mask>
-            </defs>
-          </svg>
-
-          <div class="hero-visual__stage">
-            <!-- Marco visible: contiene la foto de fondo con un "agujero" con la forma del edificio -->
-            <div class="hero-visual__frame">
-              <img
-                class="hero-visual__plate"
-                src="assets/hero-building.jpg"
-                alt="Torre residencial contemporánea al atardecer, diseñada por Kroma Studio"
-                loading="eager"
-              />
-            </div>
-
-            <!-- El edificio recortado de la misma foto: arranca alineado (invisible la costura) y
-                 sube hasta sobresalir por encima del marco. -->
+          <div class="hero-visual__frame">
             <img
-              class="hero-visual__building"
-              id="heroBuilding"
+              class="hero-visual__photo"
               src="assets/hero-building.jpg"
-              alt=""
-              aria-hidden="true"
+              alt="Edificio residencial contemporáneo con balcones ajardinados, diseñado por Kroma Studio"
               loading="eager"
             />
           </div>
 
           <div class="hero-visual__caption">
-            <span>Kroma House — Los Ángeles, California</span>
-            <span class="hero-visual__caption-tag">Residencial · Proyecto internacional</span>
+            <span>Edificio Nogal — Palermo, Buenos Aires</span>
+            <span class="hero-visual__caption-tag">Residencial · Balcones ajardinados</span>
           </div>
         </div>
 

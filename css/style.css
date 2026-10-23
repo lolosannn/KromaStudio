@@ -275,80 +275,28 @@ section { position: relative; padding: 120px 0; }
   flex-wrap: wrap;
 }
 
-/* --- Visual del hero: la foto queda fija (con un "agujero" con la forma del edificio) y el
-   edificio (recortado de la misma foto) se desliza hacia arriba, sobresaliendo del marco --- */
+/* --- Visual del hero: imagen estática del edificio en un marco redondeado --- */
 .hero-visual {
   margin: 110px auto 0;
-  max-width: 980px;
+  max-width: 560px; /* foto vertical: la angostamos para que la altura del hero no quede excesiva */
 }
 
-.hero-visual__stage {
-  position: relative;
-  overflow: visible; /* permite que el edificio escape del marco al subir */
-}
-
-/* Marco visible: recuadro minimalista, vacío salvo por la foto con el agujero */
+/* Marco visible: recuadro minimalista con borde sutil y sombra */
 .hero-visual__frame {
   position: relative;
-  aspect-ratio: 1376 / 768; /* misma proporción exacta que la foto: sin recortes ni distorsión */
+  aspect-ratio: 897 / 1024; /* misma proporción exacta que la foto: sin recortes ni distorsión */
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
   overflow: hidden;
-  /* Degradado calcado de los tonos reales de la foto (cielo del atardecer -> paisaje oscuro),
-     para que el "hueco" que deja el edificio al subir se mimetice y no se note como un hueco negro. */
-  background: linear-gradient(
-    180deg,
-    #426d9a 0%,
-    #4974a0 6%,
-    #507ba6 12%,
-    #567fa6 18%,
-    #6086ae 24%,
-    #648caf 30%,
-    #6b8eac 36%,
-    #5f7c98 42%,
-    #202d3d 45%,
-    #1c1f24 48%,
-    #171719 60%,
-    #141b23 70%,
-    #23262d 85%,
-    #2b2d3a 100%
-  );
   box-shadow: 0 60px 120px -40px rgba(0, 0, 0, 0.6);
 }
 
-.hero-visual__plate {
+.hero-visual__photo {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  mask: url(#heroPlateMask);
-  -webkit-mask: url(#heroPlateMask);
-  mask-mode: luminance;
-}
-
-/* El recorte del edificio: mismo archivo, mismo encuadre — a la altura de reposo coincide
-   pixel a pixel con el agujero de la placa, por eso no se nota la costura. */
-.hero-visual__building {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: 2;
-  mask: url(#heroBuildingMask);
-  -webkit-mask: url(#heroBuildingMask);
-  mask-mode: luminance;
-  filter: drop-shadow(0 45px 60px rgba(0, 0, 0, 0.55));
-
-  transform: translateY(0%);
-  transition: transform 1.8s var(--ease-out-expo);
-  will-change: transform;
-}
-
-/* Se activa vía JS al cargar la página (alto rendimiento: solo transform) */
-.hero-visual__building.is-loaded {
-  transform: translateY(-14%);
 }
 
 .hero-visual__caption {
@@ -815,7 +763,6 @@ section { position: relative; padding: 120px 0; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
   [data-reveal] { opacity: 1; transform: none; }
-  .hero-visual__building { transform: translateY(-14%); }
 }
 
 /* ---------- 13. Responsive ---------- */

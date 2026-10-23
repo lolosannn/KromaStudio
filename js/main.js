@@ -44,27 +44,6 @@
     });
   });
 
-  /* ---------- 3. Animación de entrada del Hero (el edificio sube y sobresale del marco) ---------- */
-  const heroBuilding = document.getElementById('heroBuilding');
-
-  function playHeroIntro() {
-    // requestAnimationFrame asegura que el navegador registre el estado inicial (alineado,
-    // sin costura) antes de aplicar la clase que dispara la transición (solo transform: alto rendimiento).
-    requestAnimationFrame(() => {
-      requestAnimationFrame(() => {
-        if (heroBuilding) heroBuilding.classList.add('is-loaded');
-      });
-    });
-  }
-
-  if (heroBuilding && heroBuilding.complete) {
-    playHeroIntro();
-  } else if (heroBuilding) {
-    heroBuilding.addEventListener('load', playHeroIntro, { once: true });
-    // Fallback por si la imagen tarda o falla en cargar
-    setTimeout(playHeroIntro, 1200);
-  }
-
   /* ---------- 4. Scroll reveal con IntersectionObserver ---------- */
   const revealElements = document.querySelectorAll('[data-reveal]');
 
